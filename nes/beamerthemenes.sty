@@ -1,0 +1,73 @@
+%% beamerthemenes.sty --
+%%
+%% The New Economic School Beamer theme
+%%
+%% Copyright 2020 Sergei Golovan
+%% 
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemenes}[2020/09/28 v0.1 New Economic School Beamer theme]
+\RequirePackage{etoolbox}
+\RequirePackage{pgfopts}
+\RequirePackage{ifthen}
+
+\usetheme{metropolis}
+\useinnertheme{nes}
+\useoutertheme{nes}
+\usecolortheme{neswhite}
+\usefonttheme{nes}
+
+\def\setthemeoptions{\metroset}
+
+\def\nes@check@logo@lang{%
+  \ifthenelse{\equal{\nes@logo@lang@auto}{true}}{%
+    \ifthenelse{\isundefined{\iflanguage}}{%
+      \def\nes@logo@lang{english}%
+    }{%
+      \ifx\@onlypreamble\@notprerr
+        \iflanguage{russian}{%
+          \def\nes@logo@lang{russian}%
+        }{%
+          \def\nes@logo@lang{english}%
+        }%
+      \fi
+    }%
+  }{}%
+}
+\pgfkeys{
+  /metropolis/logo language/.cd,
+    .is choice,
+    auto/.code={%
+      \def\nes@logo@lang@auto{true}%
+      \def\nes@logo@lang{english}%
+      \nes@check@logo@lang
+      \AfterEndPreamble{\nes@check@logo@lang}%
+    },
+    english/.code={%
+      \def\nes@logo@lang@auto{false}%
+      \def\nes@logo@lang{english}%
+    },
+    humanist/.code={%
+      \def\nes@logo@lang@auto{false}%
+      \def\nes@logo@lang{russian}%
+    },
+}
+\pgfkeys{
+  /metropolis/.cd,
+  logolanguage/.code=\pgfkeysalso{logo language=#1},
+}
+% Empty at the moment
+\newcommand{\nes@setdefaults}{%
+  \pgfkeys{/metropolis/.cd,
+    logo language=auto,
+  }
+}
+
+\nes@setdefaults
+\ProcessPgfOptions{/metropolis}
+\endinput
+
+%% End of beamerthemenes.sty

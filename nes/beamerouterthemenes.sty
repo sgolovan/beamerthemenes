@@ -1,0 +1,73 @@
+%% beamerouterthemenes.sty --
+%%
+%% The New Economic School beamer outer theme
+%%
+%% Copyright 2020 Sergei Golovan
+%% 
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerouterthemenes}[2020/09/28 New Economic School outer theme]
+\RequirePackage{etoolbox}
+\RequirePackage{calc}
+\RequirePackage{pgfopts}
+\RequirePackage{neslogo}
+
+\useoutertheme{metropolis}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=2ex]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+
+\newlength{\nes@logo@sep}
+\newlength{\nes@logo@pad}
+\newskip{\nes@frametitle@rightpadding}
+
+\def\nes@logo@box{%
+  \vbox to 0pt{%
+        \setlength{\nes@logo@sep}{(\heightof{\metropolis@frametitlestrut@start}-\depthof{\metropolis@frametitlestrut@end}+8mm)/2}%
+               \vskip-\nes@logo@sep
+               \hbox{\neslogo[palette=\nes@smalllogopalette,%
+                        color=\nes@smalllogocolor,%
+                        size=0.8cm,%
+                      lang=\nes@logo@lang]}%
+                  \vss}}
+
+\setbeamertemplate{frametitle}{%
+  \setlength{\nes@frametitle@rightpadding}{\metropolis@frametitle@padding+\widthof{\nes@logo@box}+1ex plus1fill}%
+  \nointerlineskip%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth,%
+      sep=0pt,%
+      leftskip=\metropolis@frametitle@padding,%
+      rightskip=\nes@frametitle@rightpadding,%
+    ]{frametitle}%
+  \metropolis@frametitlestrut@start%
+  \rlap{\setlength{\nes@logo@pad}{\paperwidth-\metropolis@frametitle@padding-\nes@frametitle@rightpadding+1ex}%
+        \hskip\nes@logo@pad\nes@logo@box\hss}%
+  \insertframetitle\enspace%
+  \usebeamerfont{framesubtitle}\insertframesubtitle%
+  \nolinebreak%
+  \metropolis@frametitlestrut@end%
+  \end{beamercolorbox}%
+  \vskip-2ex
+}
+
+\newcommand{\nes@outer@setdefaults}{
+  \pgfkeys{/metropolis/outer/.cd,
+    numbering=fraction,
+  }
+}
+
+\nes@outer@setdefaults
+\ProcessPgfPackageOptions{/metropolis/outer}
+\endinput
+
+%% End of beamerouterthemenes.sty

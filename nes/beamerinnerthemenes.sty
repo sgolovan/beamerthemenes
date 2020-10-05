@@ -1,0 +1,46 @@
+%% beamerinnerthemenes.sty --
+%%
+%% The New Economic School beamer inner theme
+%%
+%% Copyright 2020 Sergei Golovan
+%% 
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemenes}[2020/09/28 New Economic School inner theme]
+\RequirePackage{pgfopts}
+\RequirePackage{neslogo}
+
+\useinnertheme{metropolis}
+\setbeamertemplate{blocks}[rounded]
+
+\def\inserttitlegraphic{\hbox to\textwidth{\hss\neslogo[palette=\nes@biglogopalette,%
+                                                        color=\nes@biglogocolor,%
+                                                        size=1.8cm,
+                                                        lang=\nes@logo@lang]}}%
+\setbeamertemplate{title}{
+  \rightskip=2.7cm plus 1fill
+  \linespread{1.0}%
+  \vskip-2ex
+  \inserttitle%
+  \par%
+  \vspace*{0.5em}
+}
+\define@key{beamerframe}{c}[true]{% centered
+  \beamer@frametopskip=2ex plus 1fill
+  \beamer@framebottomskip=0pt plus 1fill
+  \beamer@frametopskipautobreak=2ex plus .4\paperheight
+  \beamer@framebottomskipautobreak=0pt plus .6\paperheight
+  \def\beamer@initfirstlineunskip{}%
+}
+
+% Empty at the moment
+\newcommand{\nes@inner@setdefaults}{}
+
+\nes@inner@setdefaults
+\ProcessPgfPackageOptions{/metropolis/inner}
+\endinput
+
+%% End of beamerinnerthemenes.sty
