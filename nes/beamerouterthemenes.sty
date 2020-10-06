@@ -21,12 +21,15 @@
 \useoutertheme{metropolis}
 
 \setbeamertemplate{footline}{%
-  \begin{beamercolorbox}[wd=\textwidth, sep=2ex]{footline}%
-    \usebeamerfont{page number in head/foot}%
-    \usebeamertemplate*{frame footer}
-    \hfill%
-    \usebeamertemplate*{frame numbering}
-  \end{beamercolorbox}%
+  % HACK
+  \ifbool{metropolis@standout}{}{%
+    \begin{beamercolorbox}[wd=\textwidth, sep=2ex]{footline}%
+      \usebeamerfont{page number in head/foot}%
+      \usebeamertemplate*{frame footer}%
+      \hfill%
+      \usebeamertemplate*{frame numbering}%
+    \end{beamercolorbox}%
+  }%
 }
 
 \newlength{\nes@logo@sep}
