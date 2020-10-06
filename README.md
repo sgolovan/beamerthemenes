@@ -56,6 +56,8 @@ The `nes` theme also changes default settings for a few Metropolis options:
 
 ## Examples
 
+Simple [demo slides](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/demo/demo.pdf).
+
 Default colors
 
 ![Default colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorwhite.png)
