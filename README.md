@@ -3,7 +3,7 @@
 `beamerthemenes` is a package which adds the [New Economic School](https://www.nes.ru) colors
 and logo to the nice clean [Metropolis Beamer theme](https://github.com/matze/mtheme).
 
-## System requirements
+## Prerequisites
 
 * Sufficiently new TeXLive or MikTeX distribution (TeXLive 2019 works).
 * LuaTeX (`luatex` package in TeXLive)
