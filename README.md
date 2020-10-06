@@ -56,7 +56,17 @@ The `nes` theme also changes default settings for a few Metropolis options:
 
 ## Examples
 
-TODO
+Default colors
+
+![Default colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorwhite.png)
+
+Grey colors (`\usecolortheme{nesgrey}`)
+
+![Grey colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorgrey.png)
+
+Blue colors (`\usecolortheme{nesblue}`)
+
+![Grey colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorblue.png)
 
 ## License
 
