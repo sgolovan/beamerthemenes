@@ -9,7 +9,7 @@ and logo to the nice clean [Metropolis Beamer theme](https://github.com/matze/mt
 * LuaTeX (`luatex` package in TeXLive)
 * Fira Sans and Fira Mono fonts (`fira` package in TeXLive)
 * Fira Math font (`firamath-otf` package in TeXLive)
-* Latin Modern Math font (`lm-math` package in TeXLive)
+* GFS Neohellenic Math font (`gfsneohellenicmath` package in TeXLive)
 * Metropolis theme (`beamertheme-metropolis` package in TeXLive)
 * [NES logo package](https://github.com/sgolovan/neslogo)
 

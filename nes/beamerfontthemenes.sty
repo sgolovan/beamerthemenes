@@ -12,7 +12,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerfontthemenes}[2020/09/28 New Economic School font theme]
+\ProvidesPackage{beamerfontthemenes}[2020/12/13 New Economic School font theme]
 \RequirePackage{fontspec}
 \RequirePackage{unicode-math}
 
@@ -25,8 +25,8 @@
 
 \setmathfont{Fira Math}
 % As for now Fira Math is incomplete, so add glyphs from another font
-\setmathfont[range={"0302-"0303,\vdots,\ddots,\bot}]{Latin Modern Math}
-\setmathfont[range={}]{Fira Math}
+\setmathfont[range={"0302-"0304,\vdots,\ddots,\bot}]{GFS Neohellenic Math}
+\setmathfont[range={"0304}]{Fira Math}
 
 \AtBeginEnvironment{tabu}{%
   \addfontfeature{Numbers={Monospaced}}%
