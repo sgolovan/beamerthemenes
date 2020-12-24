@@ -9,6 +9,9 @@ and logo to the nice clean [Metropolis Beamer theme](https://github.com/matze/mt
 * LuaTeX (`luatex` package in TeXLive)
 * Fira Sans and Fira Mono fonts (`fira` package in TeXLive)
 * Fira Math font (`firamath-otf` package in TeXLive)
+* STIX Two Math font (`stix2-otf` package in TeXLive)
+* TeX Gyre Bonum Math font (`tex-gyre` package in TeXLive)
+* TeX Gyre DejaVu Math font (`tex-gyre` package in TeXLive)
 * GFS Neohellenic Math font (`gfsneohellenicmath` package in TeXLive)
 * Metropolis theme (`beamertheme-metropolis` package in TeXLive)
 * [NES logo package](https://github.com/sgolovan/neslogo)
@@ -46,7 +49,7 @@ is taken from `babel` settings (`polyglossia` settings are ignored at the moment
 
 (`auto`, `fira`, or `humanist`) Chooses the font for the main title and for frame titles.
 `auto` means that if the *Humanist531 BT* font is installed (it's a commercially available
-font which is used in NES logos) then it is used in the titles, otherwise *Fira Sans*
+font which appears in NES logos) then it is used in the titles, otherwise *Fira Sans*
 substitutes it.
 
 The `nes` theme also changes default settings for a few Metropolis options:

@@ -24,8 +24,11 @@
 \setmonofont{Fira Mono}
 
 \setmathfont{Fira Math}
-% As for now Fira Math is incomplete, so add glyphs from another font
-\setmathfont[range={"0302-"0304,\vdots,\ddots,\bot}]{GFS Neohellenic Math}
+% As for now Fira Math is incomplete, so add glyphs from other fonts
+\setmathfont[range={\vdots,\ddots,\bot,\top,frak}]{TeX Gyre Bonum Math}
+\setmathfont[range={cal}]{TeX Gyre DejaVu Math}
+\setmathfont[range={frak}]{STIX Two Math}
+\setmathfont[range={"0302-"0304}]{GFS Neohellenic Math}
 \setmathfont[range={"0304}]{Fira Math}
 
 \AtBeginEnvironment{tabu}{%
