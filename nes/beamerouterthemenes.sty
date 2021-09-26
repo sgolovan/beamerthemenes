@@ -2,7 +2,7 @@
 %%
 %% The New Economic School beamer outer theme
 %%
-%% Copyright 2020 Sergei Golovan
+%% Copyright 2021 Sergei Golovan
 %%
 %% The code is derived from the Metropolis theme,
 %% Copyright 2015 Matthias Vogelgesang and the LaTeX community
@@ -46,7 +46,9 @@
                       lang=\nes@logo@lang]}%
                   \vss}}
 
-\setbeamertemplate{frametitle}{%
+% Redefine the frametitle template to include the NES logo into the header colorbox.
+\expandafter\let\csname beamer@@tmpop@frametitle@plain\endcsname\relax
+\defbeamertemplate{frametitle}{plain}{%
   \setlength{\nes@frametitle@rightpadding}{\metropolis@frametitle@padding+\widthof{\nes@logo@box}+1ex plus1fill}%
   \nointerlineskip%
   \begin{beamercolorbox}[%
@@ -63,7 +65,6 @@
   \nolinebreak%
   \metropolis@frametitlestrut@end%
   \end{beamercolorbox}%
-  \vskip-2ex
 }
 
 \newcommand{\nes@outer@setdefaults}{
