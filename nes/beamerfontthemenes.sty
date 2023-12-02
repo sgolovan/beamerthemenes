@@ -16,6 +16,8 @@
 \RequirePackage{fontspec}
 \RequirePackage{unicode-math}
 
+\addfontfeature{Numbers={Monospaced}}%
+
 \usefonttheme{professionalfonts}
 \usefonttheme{metropolis}
 
@@ -25,15 +27,11 @@
 
 \setmathfont{Fira Math}
 % As for now Fira Math is incomplete, so add glyphs from other fonts
-\setmathfont[range={\vdots,\ddots,\bot,\top,frak}]{TeX Gyre Bonum Math}
+\setmathfont[range={\vdots,\ddots,\bot,\top,\bigcup,\bigcap,frak}]{TeX Gyre Bonum Math}
 \setmathfont[range={cal}]{TeX Gyre DejaVu Math}
-\setmathfont[range={frak}]{STIX Two Math}
-\setmathfont[range={"0302-"0304}]{GFS Neohellenic Math}
+\setmathfont[range={\setminus,frak}]{STIX Two Math}
+\setmathfont[range={"0302-"0304,\Vbar}]{GFS Neohellenic Math}
 \setmathfont[range={"0304}]{Fira Math}
-
-\AtBeginEnvironment{tabu}{%
-  \addfontfeature{Numbers={Monospaced}}%
-}
 
 \setbeamerfont{title}{family=\nes@humanist}
 \setbeamerfont{section title}{family=\nes@humanist}
