@@ -43,13 +43,11 @@
     \ifthenelse{\@babel@loaded=0}{%
       \def\nes@logo@lang{english}%
     }{%
-      \ifx\@onlypreamble\@notprerr
-        \iflanguage{russian}{%
-          \def\nes@logo@lang{russian}%
-        }{%
-          \def\nes@logo@lang{english}%
-        }%
-      \fi
+      \iflanguage{russian}{%
+        \def\nes@logo@lang{russian}%
+      }{%
+        \def\nes@logo@lang{english}%
+      }%
     }%
   }{}%
 }
@@ -61,7 +59,7 @@
       \def\nes@logo@lang{english}%
       \nes@check@logo@lang
       \AtBeginDocument{\nes@check@babel@loaded}%
-      \AfterEndPreamble{\nes@check@logo@lang}%
+      \AtBeginDocument{\nes@check@logo@lang}%
     },
     english/.code={%
       \def\nes@logo@lang@auto{false}%
