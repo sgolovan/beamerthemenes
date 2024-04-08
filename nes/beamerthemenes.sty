@@ -2,7 +2,7 @@
 %%
 %% The New Economic School Beamer theme
 %%
-%% Copyright 2020 Sergei Golovan
+%% Copyright 2020-2024 Sergei Golovan
 %%
 %% The code is derived from the Metropolis theme,
 %% Copyright 2015 Matthias Vogelgesang and the LaTeX community
@@ -12,7 +12,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemenes}[2020/09/28 v0.1 New Economic School Beamer theme]
+\ProvidesPackage{beamerthemenes}[2024/04/08 v0.2 New Economic School Beamer theme]
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
 \RequirePackage{ifthen}
@@ -51,6 +51,7 @@
     }%
   }{}%
 }
+\newif\ifnes@logo
 \pgfkeys{
   /metropolis/logo language/.cd,
     .is choice,
@@ -69,6 +70,8 @@
       \def\nes@logo@lang@auto{false}%
       \def\nes@logo@lang{russian}%
     },
+    /metropolis/logo/.cd,
+    .is if=nes@logo,
 }
 \pgfkeys{
   /metropolis/.cd,
@@ -77,6 +80,7 @@
 % Empty at the moment
 \newcommand{\nes@setdefaults}{%
   \pgfkeys{/metropolis/.cd,
+    logo=true,
     logo language=auto,
   }
 }

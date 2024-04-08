@@ -37,7 +37,8 @@
 \newskip{\nes@frametitle@rightpadding}
 
 \def\nes@logo@box{%
-  \vbox to 0pt{%
+  \ifnes@logo
+    \vbox to 0pt{%
         \setlength{\nes@logo@sep}{(\heightof{\metropolis@frametitlestrut@start}-\depthof{\metropolis@frametitlestrut@end}+8mm)/2}%
                \vskip-\nes@logo@sep
                \hbox{\neslogo[palette=\nes@smalllogopalette,%
@@ -45,7 +46,8 @@
                         size=0.8cm,%
                         old=true,%
                       lang=\nes@logo@lang]}%
-                  \vss}}
+                  \vss}%
+  \fi}
 
 % Redefine the frametitle template to include the NES logo into the header colorbox.
 \expandafter\let\csname beamer@@tmpop@frametitle@plain\endcsname\relax

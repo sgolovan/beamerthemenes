@@ -19,11 +19,14 @@
 \useinnertheme{metropolis}
 \setbeamertemplate{blocks}[rounded]
 
-\def\inserttitlegraphic{\hbox to\textwidth{\hss\neslogo[palette=\nes@biglogopalette,%
-                                                        color=\nes@biglogocolor,%
-                                                        size=1.8cm,
-                                                        old=true,
-                                                        lang=\nes@logo@lang]}}%
+\def\inserttitlegraphic{\hbox to\textwidth{\hss
+    \ifnes@logo
+      \neslogo[palette=\nes@biglogopalette,
+               color=\nes@biglogocolor,
+               size=1.8cm,
+               old=true,
+               lang=\nes@logo@lang]%
+    \else\hbox{}\fi}}%
 \setbeamertemplate{title}{
   \rightskip=2.7cm plus 1fill
   \linespread{1.0}%
