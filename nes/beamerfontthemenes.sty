@@ -2,7 +2,7 @@
 %%
 %% The New Economic School beamer font theme
 %%
-%% Copyright 2020 Sergei Golovan
+%% Copyright 2020-2024 Sergei Golovan
 %%
 %% The code is derived from the Metropolis theme,
 %% Copyright 2015 Matthias Vogelgesang and the LaTeX community
@@ -12,7 +12,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerfontthemenes}[2020/12/13 New Economic School font theme]
+\ProvidesPackage{beamerfontthemenes}[2024/05/02 New Economic School font theme]
 \RequirePackage{fontspec}
 \RequirePackage{unicode-math}
 
@@ -21,50 +21,59 @@
 \usefonttheme{professionalfonts}
 \usefonttheme{metropolis}
 
-\setmainfont{Fira Sans}
-\setsansfont{Fira Sans}
+\setmainfont{Lato}
+\setsansfont{Lato}
 \setmonofont{Fira Mono}
 
-\setmathfont{Fira Math}
+\setmathfont{Lato Math}
 % As for now Fira Math is incomplete, so add glyphs from other fonts
-\setmathfont[range={\vdots,\ddots,\bot,\top,\bigcup,\bigcap,frak}]{TeX Gyre Bonum Math}
-\setmathfont[range={cal}]{TeX Gyre DejaVu Math}
-\setmathfont[range={\setminus,frak}]{STIX Two Math}
-\setmathfont[range={"0302-"0304,\Vbar}]{GFS Neohellenic Math}
-\setmathfont[range={"0304}]{Fira Math}
+%\setmathfont[range={\vdots,\ddots,\bot,\top,\bigcup,\bigcap,frak}]{TeX Gyre Bonum Math}
+%\setmathfont[range={cal}]{TeX Gyre DejaVu Math}
+%\setmathfont[range={\setminus,frak}]{STIX Two Math}
+%\setmathfont[range={"0302-"0304,\Vbar}]{GFS Neohellenic Math}
+%\setmathfont[range={"0304}]{Fira Math}
 
-\setbeamerfont{title}{family=\nes@humanist}
-\setbeamerfont{section title}{family=\nes@humanist}
-\setbeamerfont*{subtitle}{family=\nes@humanist}
-\setbeamerfont{frametitle}{family=\nes@humanist}
-\setbeamerfont{framesubtitle}{size=\small,%
-                              series=\normalfont,%
-                              family=\nes@humanist}
+\setbeamerfont{title}{size=\huge,
+                      series=\normalfont,
+                      family=\nes@family}
+\setbeamerfont{section title}{family=\nes@family}
+\setbeamerfont*{subtitle}{family=\nes@family}
+\setbeamerfont{frametitle}{size=\LARGE,
+                           series=\normalfont,
+                           family=\nes@family}
+\setbeamerfont{framesubtitle}{size=\normalsize,
+                              series=\normalfont,
+                              family=\nes@family}
 \pgfkeys{
   /metropolis/font/titleformat font family/.cd,
     .is choice,
     auto/.code={%
-      \IfFontExistsTF{Humanist531 BT}{%
-        \IfFontExistsTF{Humanist531 BT Black}{%
-          \let\nes@humanist\undefined
-          \newfontfamily\nes@humanist{Humanist531 BT}[BoldFont={Humanist531 BT Black},%
-                                                      Ligatures=TeX,%
-                                                      Scale=MatchLowercase]%
+      \IfFontExistsTF{Museo Sans Cyrl 300}{%
+        \IfFontExistsTF{Museo Sans Cyrl 500}{%
+          \let\nes@family\undefined
+          \newfontfamily\nes@family{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
+                                                        Ligatures=TeX,%
+                                                        Scale=MatchLowercase]%
         }{%
-          \let\nes@humanist\relax
+          \let\nes@museo\relax
         }%
       }{%
-        \let\nes@humanist\relax
+        \let\nes@museo\relax
       }%
     },
-    fira/.code={%
-      \let\nes@humanist\relax
+    lato/.code={%
+      \let\nes@family\undefined
+      \newfontfamily\nes@family{Lato}[Ligatures=TeX]%
     },
-    humanist/.code={%
-      \let\nes@humanist\undefined
-      \newfontfamily\nes@humanist{Humanist531 BT}[BoldFont={Humanist531 BT Black},%
-                                                  Ligatures=TeX,%
-                                                  Scale=MatchLowercase]%
+    segoe/.code={%
+      \let\nes@family\undefined
+      \newfontfamily\nes@family{Segoe UI}[Ligatures=TeX]%
+    },
+    museo/.code={%
+      \let\nes@family\undefined
+      \newfontfamily\nes@family{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
+                                                    Ligatures=TeX,%
+                                                    Scale=MatchLowercase]%
     },
 }
 \pgfkeys{

@@ -12,7 +12,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerouterthemenes}[2024/04/08 New Economic School outer theme]
+\ProvidesPackage{beamerouterthemenes}[2024/05/02 New Economic School outer theme]
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
 \RequirePackage{pgfopts}
@@ -34,17 +34,17 @@
 
 \newlength{\nes@logo@sep}
 \newlength{\nes@logo@pad}
-\newskip{\nes@frametitle@rightpadding}
+\newskip{\nes@frametitle@leftpadding}
 
 \def\nes@logo@box{%
   \ifnes@logo
     \vbox to 0pt{%
-        \setlength{\nes@logo@sep}{(\heightof{\metropolis@frametitlestrut@start}-\depthof{\metropolis@frametitlestrut@end}+8mm)/2}%
+        \setlength{\nes@logo@sep}{(\heightof{\metropolis@frametitlestrut@start}-\depthof{\metropolis@frametitlestrut@end}+6mm)/2}%
                \vskip-\nes@logo@sep
-               \hbox{\neslogo[palette=\nes@smalllogopalette,%
-                        color=\nes@smalllogocolor,%
-                        size=0.8cm,%
-                        old=true,%
+               \hbox{\neslogo[palette=\nes@smalllogopalette,
+                              color=\nes@smalllogocolor,
+                              text=false,
+                              size=0.9cm,
                       lang=\nes@logo@lang]}%
                   \vss}%
   \fi}
@@ -52,17 +52,16 @@
 % Redefine the frametitle template to include the NES logo into the header colorbox.
 \expandafter\let\csname beamer@@tmpop@frametitle@plain\endcsname\relax
 \defbeamertemplate{frametitle}{plain}{%
-  \setlength{\nes@frametitle@rightpadding}{\metropolis@frametitle@padding+\widthof{\nes@logo@box}+1ex plus1fill}%
+  \setlength{\nes@frametitle@leftpadding}{\metropolis@frametitle@padding+\widthof{\nes@logo@box}+2ex}%
   \nointerlineskip%
   \begin{beamercolorbox}[%
       wd=\paperwidth,%
       sep=0pt,%
-      leftskip=\metropolis@frametitle@padding,%
-      rightskip=\nes@frametitle@rightpadding,%
+      leftskip=\nes@frametitle@leftpadding,%
+      rightskip=\the\metropolis@frametitle@padding plus1fil,%
     ]{frametitle}%
   \metropolis@frametitlestrut@start%
-  \rlap{\setlength{\nes@logo@pad}{\paperwidth-\metropolis@frametitle@padding-\nes@frametitle@rightpadding+1ex}%
-        \hskip\nes@logo@pad\nes@logo@box\hss}%
+  \llap{\nes@logo@box\hskip 2ex}%
   \insertframetitle\enspace%
   \usebeamerfont{framesubtitle}\insertframesubtitle%
   \nolinebreak%

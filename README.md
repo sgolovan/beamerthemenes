@@ -5,14 +5,11 @@ and logo to the nice clean [Metropolis Beamer theme](https://github.com/matze/mt
 
 ## Prerequisites
 
-* Sufficiently new TeXLive or MikTeX distribution (TeXLive 2019 works).
+* Sufficiently new TeXLive or MikTeX distribution (TeXLive 2023 works).
 * LuaTeX (`luatex` package in TeXLive)
-* Fira Sans and Fira Mono fonts (`fira` package in TeXLive)
-* Fira Math font (`firamath-otf` package in TeXLive)
-* STIX Two Math font (`stix2-otf` package in TeXLive)
-* TeX Gyre Bonum Math font (`tex-gyre` package in TeXLive)
-* TeX Gyre DejaVu Math font (`tex-gyre` package in TeXLive)
-* GFS Neohellenic Math font (`gfsneohellenicmath` package in TeXLive)
+* Lato font (`lato` package in TeXLive)
+* Fira Mono font (`fira` package in TeXLive)
+* Lato Math font (`lato-math` package in TeXLive)
 * Metropolis theme (`beamertheme-metropolis` package in TeXLive)
 * [NES logo package](https://github.com/sgolovan/neslogo)
 
@@ -40,6 +37,10 @@ which can be found in the
 [Metropolis manual](http://mirrors.ctan.org/macros/latex/contrib/beamer-contrib/themes/metropolis/doc/metropolistheme.pdf).
 Additional options are:
 
+#### `logo`
+
+(`true` or `false`) Chooses if the NES logo should be used in slides at all.
+
 #### `logo language`
 
 (`auto`, `russian`, or `english`) Chooses the NES logo language. `auto` means that the language
@@ -47,10 +48,9 @@ is taken from `babel` settings (`polyglossia` settings are ignored at the moment
 
 #### `titleformat font family`
 
-(`auto`, `fira`, or `humanist`) Chooses the font for the main title and for frame titles.
-`auto` means that if the *Humanist531 BT* font is installed (it's a commercially available
-font which appears in NES logos) then it is used in the titles, otherwise *Fira Sans*
-substitutes it.
+(`auto`, `lato`, or `segoe`) Chooses the font for the main title and for frame titles.
+`auto` means that if the *Segoe UI* font is installed (it's available in MS Windows distributions)
+then it is used in the titles, otherwise *Lato* substitutes it.
 
 The `nes` theme also changes default settings for a few Metropolis options:
 
@@ -65,15 +65,19 @@ Default colors, suitable for formal presentations:
 
 ![Default colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorwhite.png)
 
-The other two color schemes are much more informal.
+The other three color schemes are less formal.
 
-Grey colors (`\usecolortheme{nesgrey}`)
+Grey background (`\usecolortheme{nesgrey}`)
 
-![Grey colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorgrey.png)
+![Grey background](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorgrey.png)
 
-Blue colors (`\usecolortheme{nesblue}`)
+Blue background (`\usecolortheme{nesblue}`)
 
-![Grey colors](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorblue.png)
+![Blue background](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorblue.png)
+
+Red background (`\usecolortheme{nesred}`)
+
+![Red background](https://raw.githubusercontent.com/sgolovan/beamerthemenes/main/examples/colorred.png)
 
 ## License
 

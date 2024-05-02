@@ -12,28 +12,61 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerinnerthemenes}[2024/04/08 New Economic School inner theme]
+\ProvidesPackage{beamerinnerthemenes}[2024/05/02 New Economic School inner theme]
 \RequirePackage{pgfopts}
 \RequirePackage{neslogo}
+\RequirePackage{setspace}
 
 \useinnertheme{metropolis}
 \setbeamertemplate{blocks}[rounded]
 
-\def\inserttitlegraphic{\hbox to\textwidth{\hss
-    \ifnes@logo
-      \neslogo[palette=\nes@biglogopalette,
-               color=\nes@biglogocolor,
-               size=1.8cm,
-               old=true,
-               lang=\nes@logo@lang]%
-    \else\hbox{}\fi}}%
+\def\inserttitlegraphic{\hbox to\textwidth{%
+  \ifnes@logo
+    \neslogo[palette=\nes@biglogopalette,
+             color=\nes@biglogocolor,
+             size=1.5cm,
+             lang=\nes@logo@lang]%
+  \else\hbox{}\fi\hss}%
+}
+
+\setbeamertemplate{title graphic}{
+  \vbox {
+    \vspace*{1em}
+    \inserttitlegraphic%
+  }%
+  \vspace*{-1.5em}
+  \nointerlineskip%
+}
+
 \setbeamertemplate{title}{
-  \rightskip=2.7cm plus 1fill
-  \linespread{1.0}%
-  \vskip-2ex
-  \inserttitle%
+  \rightskip=0cm plus 1fill
+  \setstretch{0.8}%
+  \inserttitle
+  \par
+  \vspace*{0.2em}%
+}
+\setbeamertemplate{author}{
+  \vspace*{1em}
+  \insertauthor
+  \par
+}
+\setbeamertemplate{date}{
+  \ifx\beamer@shortauthor\@empty\vspace*{1em}\else\vspace*{0.5em}\fi
+  \insertdate
+  \par
+}
+\setbeamertemplate{institute}{
+  \ifx\beamer@shortauthor\@empty
+    \ifx\insertdate\@empty
+      \vspace*{1em}%
+    \else
+      \vspace*{0.7em}%
+    \fi
+  \else
+    \vspace*{0.7em}%
+  \fi
+  \insertinstitute%
   \par%
-  \vspace*{0.5em}
 }
 \define@key{beamerframe}{c}[true]{% centered
   \beamer@frametopskip=2ex plus 1fill

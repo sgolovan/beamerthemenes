@@ -1,8 +1,8 @@
-%% beamercolorthemenesblue.sty --
+%% beamercolorthemenesgrey.sty --
 %%
 %% The New Economic School beamer color theme with grey background
 %%
-%% Copyright 2020 Sergei Golovan
+%% Copyright 2020-2024 Sergei Golovan
 %%
 %% The code is derived from the Metropolis theme,
 %% Copyright 2015 Matthias Vogelgesang and the LaTeX community
@@ -12,8 +12,9 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamercolorthemenesgrey}[2020/09/28 New Economic School color theme with grey background]
+\ProvidesPackage{beamercolorthemenesgrey}[2024/05/02 New Economic School color theme with grey background]
 \RequirePackage{pgfopts}
+\RequirePackage{neslogo}
 
 \usecolortheme{metropolis}
 
@@ -28,28 +29,11 @@
     block=fill,
   }
 }
-% Pantone 485, CMYK 0,100,100,0, RGB 223,0,26
-\definecolor{nesred}{rgb}{0.8745,0,0.1020}
-
-% Pantone 293, CMYK 100,60,0,0, RGB 0,87,165
-\definecolor{nesblue}{rgb}{0,0.3412,0.6471}
-
-% Pantone Process Black, CMYK 0,0,0,100, RGB 0,0,0
-\definecolor{nesblack}{rgb}{0,0,0}
-
-% Pantone Process Black 55%, CMYK 0,0,0,55, RGB 138,138,142
-\definecolor{nesblack55}{rgb}{0.5412,0.5412,0.5569}
-
-% Pantone Process Black 80%, CMYK 0,0,0,80, RGB 80,78,83
-\definecolor{nesblack80}{rgb}{0.3137,0.3059,0.3255}
-
-% Pantone White, CMYK 0,0,0,0, RGB 255,255,255
-\definecolor{neswhite}{rgb}{1,1,1}
 
 \def\nes@biglogopalette{mono}
 \def\nes@biglogocolor{white}
 \def\nes@smalllogopalette{mono}
-\def\nes@smalllogocolor{black}
+\def\nes@smalllogocolor{white}
 
 \setbeamercolor{normal text}{%
   fg=neswhite,
@@ -58,15 +42,15 @@
 \providecommand{\nes@colors@dark}{}
 \providecommand{\nes@colors@light}{}
 \setbeamercolor{alerted text}{%
-  fg=nesred!20!neswhite
+  fg=nesdarkred!40!neswhite
 }
 \setbeamercolor{example text}{%
-  fg=nesblue!20!nesblue
+  fg=nesdarkblue!40!neswhite
 }
 \setbeamercolor{palette primary}{%
   use=normal text,
-  fg=nesblack,
-  bg=nesblack55!50!neswhite
+  fg=neswhite,
+  bg=nesblack80
 }
 \setbeamercolor{item}{%
   fg=neswhite
