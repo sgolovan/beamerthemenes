@@ -16,14 +16,14 @@
 \RequirePackage{fontspec}
 \RequirePackage{unicode-math}
 
-\addfontfeature{Numbers={Monospaced}}%
+%\addfontfeature{Numbers={Monospaced}}%
 
 \usefonttheme{professionalfonts}
 \usefonttheme{metropolis}
 
 \setmainfont{Lato}
 \setsansfont{Lato}
-\setmonofont{Fira Mono}
+\setmonofont{Noto Sans Mono}
 
 \setmathfont{Lato Math}
 % As for now Fira Math is incomplete, so add glyphs from other fonts
@@ -32,6 +32,8 @@
 %\setmathfont[range={\setminus,frak}]{STIX Two Math}
 %\setmathfont[range={"0302-"0304,\Vbar}]{GFS Neohellenic Math}
 %\setmathfont[range={"0304}]{Fira Math}
+
+\let\nes@titlefamilyauto\relax
 
 \setbeamerfont{title}{size=\huge,
                       series=\normalfont,
@@ -45,31 +47,55 @@
                               series=\normalfont,
                               family=\nes@family}
 \pgfkeys{
+  /metropolis/font/font family/.cd,
+    .is choice,
+    lato/.code={%
+      \setmainfont{Lato}
+      \setsansfont{Lato}
+      \ifx\nes@titlefamilyauto\relax
+        \let\nes@family\undefined
+        \newfontfamily\nes@family{Lato}[Ligatures=TeX]%
+      \fi
+    },
+    segoe/.code={%
+      \setmainfont{Segoe UI}
+      \setsansfont{Segoe UI}
+      \ifx\nes@titlefamilyauto\relax
+        \let\nes@family\undefined
+        \newfontfamily\nes@family{Segoe UI}[Ligatures=TeX]%
+      \fi
+    },
+    museo/.code={%
+      \setmainfont{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
+                                        Scale=MatchLowercase]%
+      \setsansfont{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
+                                        Scale=MatchLowercase]%
+      \ifx\nes@titlefamilyauto\relax
+        \let\nes@family\undefined
+        \newfontfamily\nes@family{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
+                                                       Ligatures=TeX,%
+                                                       Scale=MatchLowercase]%
+      \fi
+    },
+}
+\pgfkeys{
   /metropolis/font/titleformat font family/.cd,
     .is choice,
     auto/.code={%
-      \IfFontExistsTF{Museo Sans Cyrl 300}{%
-        \IfFontExistsTF{Museo Sans Cyrl 500}{%
-          \let\nes@family\undefined
-          \newfontfamily\nes@family{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
-                                                        Ligatures=TeX,%
-                                                        Scale=MatchLowercase]%
-        }{%
-          \let\nes@museo\relax
-        }%
-      }{%
-        \let\nes@museo\relax
-      }%
+      \let\nes@titlefamilyauto\relax
     },
     lato/.code={%
+      \let\nes@titlefamilyauto\undefined
       \let\nes@family\undefined
       \newfontfamily\nes@family{Lato}[Ligatures=TeX]%
     },
     segoe/.code={%
+      \let\nes@titlefamilyauto\undefined
       \let\nes@family\undefined
       \newfontfamily\nes@family{Segoe UI}[Ligatures=TeX]%
     },
     museo/.code={%
+      \let\nes@titlefamilyauto\undefined
       \let\nes@family\undefined
       \newfontfamily\nes@family{Museo Sans Cyrl 300}[BoldFont={Museo Sans Cyrl 500},%
                                                     Ligatures=TeX,%
@@ -78,10 +104,12 @@
 }
 \pgfkeys{
   /metropolis/font/.cd,
+  fontfamily/.code=\pgfkeysalso{font family=#1},
   titleformatfontfamily/.code=\pgfkeysalso{titleformat font family=#1},
 }
 \newcommand{\nes@font@setdefaults}{
   \pgfkeys{/metropolis/font/.cd,
+    font family=lato,
     titleformat font family=auto,
   }
 }

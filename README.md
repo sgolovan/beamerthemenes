@@ -46,11 +46,17 @@ Additional options are:
 (`auto`, `russian`, or `english`) Chooses the NES logo language. `auto` means that the language
 is taken from `babel` settings (`polyglossia` settings are ignored at the moment).
 
+#### `font family`
+
+(`lato`, `segoe`, or `museo`) Chooses the font for the slides contents.
+`lato` chooses the *Lato* font, `segoe` chooses the *Segoe UI* font (it's available in MS Windows distributions),
+`museo` chooses the *Museo Sans Cyrl* font, which is a commercial font from the NES brandbook.
+
 #### `titleformat font family`
 
-(`auto`, `lato`, or `segoe`) Chooses the font for the main title and for frame titles.
-`auto` means that if the *Segoe UI* font is installed (it's available in MS Windows distributions)
-then it is used in the titles, otherwise *Lato* substitutes it.
+(`auto`, `lato`, `segoe`, or `museo`) Chooses the font for the main title and for frame titles.
+`auto` means the same font as for the contents of the slides, the other values mean the same
+as the respective values for the `font family` option.
 
 The `nes` theme also changes default settings for a few Metropolis options:
 
