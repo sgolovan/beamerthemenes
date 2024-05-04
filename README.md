@@ -8,7 +8,7 @@ and logo to the nice clean [Metropolis Beamer theme](https://github.com/matze/mt
 * Sufficiently new TeXLive or MikTeX distribution (TeXLive 2023 works).
 * LuaTeX (`luatex` package in TeXLive)
 * Lato font (`lato` package in TeXLive)
-* Fira Mono font (`fira` package in TeXLive)
+* Noto Sans Mono font (`noto` package in TeXLive)
 * Lato Math font (`lato-math` package in TeXLive)
 * Metropolis theme (`beamertheme-metropolis` package in TeXLive)
 * [NES logo package](https://github.com/sgolovan/neslogo)
