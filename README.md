@@ -43,8 +43,8 @@ Additional options are:
 
 #### `logo language`
 
-(`auto`, `russian`, or `english`) Chooses the NES logo language. `auto` means that the language
-is taken from `babel` settings (`polyglossia` settings are ignored at the moment).
+(`auto`, `russian`, or `english`) Chooses the NES logo language. `auto` means that the logo language
+is set as the main language from `babel` or `polyglossia` settings.
 
 #### `font family`
 

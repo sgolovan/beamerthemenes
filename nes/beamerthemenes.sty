@@ -12,10 +12,11 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemenes}[2024/05/02 v0.2 New Economic School Beamer theme]
+\ProvidesPackage{beamerthemenes}[2024/05/12 v0.3 New Economic School Beamer theme]
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
 \RequirePackage{ifthen}
+\RequirePackage{iflang}
 
 \usetheme{metropolis}
 \useinnertheme{nes}
@@ -25,29 +26,12 @@
 
 \def\setthemeoptions{\metroset}
 
-\def\@babel@loaded{0}
-\def\nes@check@babel@loaded{%
-  \@ifpackageloaded{babel}{%
-    \@ifpackageloaded{polyglossia}{%
-      \def\@babel@loaded{0}%
-    }{%
-      \def\@babel@loaded{1}%
-    }%
-  }{%
-    \def\@babel@loaded{0}%
-  }%
-}
-
 \def\nes@check@logo@lang{%
   \ifthenelse{\equal{\nes@logo@lang@auto}{true}}{%
-    \ifthenelse{\@babel@loaded=0}{%
-      \def\nes@logo@lang{english}%
+    \IfLanguageName{russian}{%
+      \def\nes@logo@lang{russian}%
     }{%
-      \iflanguage{russian}{%
-        \def\nes@logo@lang{russian}%
-      }{%
-        \def\nes@logo@lang{english}%
-      }%
+      \def\nes@logo@lang{english}%
     }%
   }{}%
 }
@@ -59,7 +43,6 @@
       \def\nes@logo@lang@auto{true}%
       \def\nes@logo@lang{english}%
       \nes@check@logo@lang
-      \AtBeginDocument{\nes@check@babel@loaded}%
       \AtBeginDocument{\nes@check@logo@lang}%
     },
     english/.code={%
